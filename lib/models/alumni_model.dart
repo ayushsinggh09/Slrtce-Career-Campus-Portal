@@ -1,0 +1,196 @@
+class AlumniModel {
+  final String id;
+  final String name;
+  final String branch;
+  final String batch;
+  final String currentPosition;
+  final String currentCompany;
+  final String? profileImagePath;
+  final List<String> achievements;
+  final String? linkedInUrl;
+  final String? email;
+  final double? cgpa;
+
+  AlumniModel({
+    required this.id,
+    required this.name,
+    required this.branch,
+    required this.batch,
+    required this.currentPosition,
+    required this.currentCompany,
+    this.profileImagePath,
+    this.achievements = const [],
+    this.linkedInUrl,
+    this.email,
+    this.cgpa,
+  });
+
+  // Static method to provide sample alumni data
+  // In a real app, this would come from a database or API
+  static List<AlumniModel> getSampleAlumni() {
+    return [
+      AlumniModel(
+        id: '1',
+        name: 'Shubham Patel',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Content Creater',
+        currentCompany: 'Capgemini',
+        profileImagePath: 'assets/images/alumni_1.jpg', 
+        achievements: ['+1M followers on social media', 'Dancer'],
+        cgpa: 7.9,
+      ),
+      AlumniModel(
+        id: '2',
+        name: 'Hardik Rajpurohit',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Data Scientist',
+        currentCompany: 'Dream 11',
+        profileImagePath: 'assets/images/alumni_2.jpg',
+        achievements: ['Online Fantasy Winner 5x', 'Carpedium Captian'],
+        cgpa: 7.8,
+      ),
+      AlumniModel(
+        id: '3',
+        name: 'Rahul Prasad',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Assistant Professors',
+        currentCompany: 'Physics Wallah',
+        profileImagePath: 'assets/images/alumni_3.jpg',
+        achievements: [
+          'Winner of Science Exhibition 2x',
+          'Physics Golden Attempt Clear'
+        ],
+        cgpa: 7.7,
+      ),
+      AlumniModel(
+        id: '4',
+        name: 'Sunny Singh',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Fitness consultant',
+        currentCompany: 'Nitrro',
+        profileImagePath: 'assets/images/alumni_4.jpg',
+        achievements: [
+          'Most push ups in 10 minutes',
+          'Guinness World Records Longest Plank'
+        ],
+        cgpa: 7.6,
+      ),
+      AlumniModel(
+        id: '5',
+        name: 'Adarsh Yadav',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Software Engineer',
+        currentCompany: 'Accenture',
+        profileImagePath: 'assets/images/alumni_5.jpg',
+        achievements: ['Leadership Excellence', 'SIH winner 24'],
+        cgpa: 9.4,
+      ),
+      AlumniModel(
+        id: '6',
+        name: 'Shreyash Singh',
+        branch: 'ECs',
+        batch: '2023',
+        currentPosition: 'Full Stack Developer',
+        currentCompany: 'JIO',
+        profileImagePath: 'assets/images/alumni_6.jpg',
+        achievements: ['Hack4bihar winner 4x', 'SIH Winner 24'],
+        cgpa: 7.8,
+      ),
+      AlumniModel(
+        id: '7',
+        name: 'Himanshu Yadav',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Data Analytics',
+        currentCompany: 'Stake',
+        profileImagePath: 'assets/images/alumni_7.jpg',
+        achievements: ['Stake Brand Ambassador', 'SIH Winner 24'],
+        cgpa: 7.7,
+      ),
+      AlumniModel(
+        id: '8',
+        name: 'Ved Sharma',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'UI/UX Design',
+        currentCompany: 'Deloite',
+        profileImagePath: 'assets/images/alumni_8.jpeg',
+        achievements: ['Technical Excellence', 'SIH Winner 24'],
+        cgpa: 8.5,
+      ),
+      AlumniModel(
+        id: '9',
+        name: 'Ayush Singh',
+        branch: 'ECS',
+        batch: '2023',
+        currentPosition: 'Software Developer',
+        currentCompany: 'KPMG',
+        profileImagePath: 'assets/images/alumni_9.png',
+        achievements: ['Stock Predication', 'SIH Winner 24'],
+        cgpa: 8.1,
+      ),
+    ];
+  }
+
+  // Method to convert to JSON for storage
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'branch': branch,
+      'batch': batch,
+      'currentPosition': currentPosition,
+      'currentCompany': currentCompany,
+      'profileImagePath': profileImagePath,
+      'achievements': achievements,
+      'linkedInUrl': linkedInUrl,
+      'email': email,
+      'cgpa': cgpa,
+    };
+  }
+
+  // Factory constructor to create from JSON
+  factory AlumniModel.fromJson(Map<String, dynamic> json) {
+    return AlumniModel(
+      id: json['id'],
+      name: json['name'],
+      branch: json['branch'],
+      batch: json['batch'],
+      currentPosition: json['currentPosition'],
+      currentCompany: json['currentCompany'],
+      profileImagePath: json['profileImagePath'],
+      achievements: List<String>.from(json['achievements'] ?? []),
+      linkedInUrl: json['linkedInUrl'],
+      email: json['email'],
+      cgpa: json['cgpa']?.toDouble(),
+    );
+  }
+
+  // Helper method to get achievement count
+  int get achievementCount => achievements.length;
+
+  // Helper method to check if alumni has profile picture
+  bool get hasProfilePicture =>
+      profileImagePath != null && profileImagePath!.isNotEmpty;
+
+  // Helper method to get display name (first name only)
+  String get firstName {
+    return name.split(' ').first;
+  }
+
+  // Helper method to get graduation year as int
+  int get graduationYear {
+    return int.tryParse(batch) ?? DateTime.now().year;
+  }
+
+  // Helper method to check if alumni is recent graduate (within 2 years)
+  bool get isRecentGraduate {
+    final currentYear = DateTime.now().year;
+    return (currentYear - graduationYear) <= 2;
+  }
+}
