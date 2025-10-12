@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:supabase_flutter/supabase_flutter.dart'; // ← NEW
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'firebase_options.dart';
 import 'providers/student_provider.dart';
 import 'providers/auth_provider.dart';
@@ -13,21 +13,22 @@ import 'theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase (for Auth & Firestore)
+  // Initialize Firebase for Auth & Firestore sorry firebase torage plz return my 18 rupees
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Initialize Supabase (for Storage) - NEW ↓
+  // Initialize Supabase for Storage
   await Supabase.initialize(
-    url: 'https://mkeulooupbpduxorhknn.supabase.co', // ← Replace with your URL
+    url: 'https://mkeulooupbpduxorhknn.supabase.co',
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rZXVsb291cGJwZHV4b3Joa25uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDc3NjgsImV4cCI6MjA3NTUyMzc2OH0.mAUiRwVfTfaXx1ALa-rBhhiPt_otTucZs9yBQ62CRdM', // ← Replace with your key
   );
 
-  final prefs = await SharedPreferences.getInstance();
+  final prefs = await SharedPreferences
+      .getInstance(); // for simple storage remember like user logged in
+  // start application
   runApp(MyApp(prefs: prefs));
 }
 
-// Rest of your code stays the same...
 class MyApp extends StatelessWidget {
   final SharedPreferences prefs;
   const MyApp({super.key, required this.prefs});
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ... rest of your SplashScreen code stays exactly the same
+// splash screen use stateful widget for loading experiences
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
   @override
@@ -70,8 +71,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    _initializeAnimations();
-    _checkAuthAndNavigate();
+    _initializeAnimations(); // for logo ,text etc
+    _checkAuthAndNavigate(); // for verifies then dashboard if not logins
   }
 
   void _initializeAnimations() {
@@ -126,6 +127,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
+    // memory clean up if spalsh screen animation
     _logoController.dispose();
     _textController.dispose();
     _progressController.dispose();
@@ -206,7 +208,7 @@ class _SplashScreenState extends State<SplashScreen>
             FadeTransition(
               opacity: _textAnimation,
               child: Text(
-                'Version 1.0.0',
+                'Version 1.0.9',
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.5),
                   fontSize: 12,

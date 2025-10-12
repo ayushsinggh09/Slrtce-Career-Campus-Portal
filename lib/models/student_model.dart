@@ -50,7 +50,7 @@ class StudentModel {
   double get cgpa {
     final validGPAs = semesterGPAs.whereType<double>().toList();
     if (validGPAs.isEmpty) return 0.0;
-    return validGPAs.reduce((a, b) => a + b) / validGPAs.length;
+    return validGPAs.reduce((a, b) => a + b) / validGPAs.length; //avg
   }
 
   int get completedSemesters {
@@ -61,7 +61,7 @@ class StudentModel {
     double total = 0;
     double completed = 0;
 
-    total += 6; // name, email, phone, branch, batch, rollNumber
+    total += 6; // name, email, phone, branch, batch, rollNumber compuls... part to fill
     if (name.isNotEmpty) completed++;
     if (email.isNotEmpty) completed++;
     if (phone.isNotEmpty) completed++;
@@ -88,7 +88,7 @@ class StudentModel {
     return (completed / total) * 100;
   }
 
-  StudentModel copyWith({
+  StudentModel copyWith({      //update  ctreate
     String? name,
     String? email,
     String? phone,
@@ -124,7 +124,7 @@ class StudentModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {    // to firebase send
     return {
       'name': name,
       'email': email,
@@ -144,7 +144,7 @@ class StudentModel {
     };
   }
 
-  factory StudentModel.fromJson(Map<String, dynamic> json) {
+  factory StudentModel.fromJson(Map<String, dynamic> json) {    // retrived from firebase
     return StudentModel(
       name: json['name'] ?? '',
       email: json['email'] ?? '',

@@ -137,7 +137,7 @@ class AlumniModel {
     ];
   }
 
-  // Method to convert to JSON for storage
+ 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -154,7 +154,7 @@ class AlumniModel {
     };
   }
 
-  // Factory constructor to create from JSON
+  // Factory constructor to create from JSON  update upcomming
   factory AlumniModel.fromJson(Map<String, dynamic> json) {
     return AlumniModel(
       id: json['id'],
@@ -170,27 +170,21 @@ class AlumniModel {
       cgpa: json['cgpa']?.toDouble(),
     );
   }
-
-  // Helper method to get achievement count
   int get achievementCount => achievements.length;
-
-  // Helper method to check if alumni has profile picture
   bool get hasProfilePicture =>
       profileImagePath != null && profileImagePath!.isNotEmpty;
-
-  // Helper method to get display name (first name only)
   String get firstName {
     return name.split(' ').first;
   }
 
-  // Helper method to get graduation year as int
   int get graduationYear {
     return int.tryParse(batch) ?? DateTime.now().year;
   }
 
-  // Helper method to check if alumni is recent graduate (within 2 years)
+
   bool get isRecentGraduate {
     final currentYear = DateTime.now().year;
     return (currentYear - graduationYear) <= 2;
   }
 }
+// newly alumni added in dece..... through firebase

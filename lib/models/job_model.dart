@@ -292,7 +292,6 @@ class AptitudeTestResult {
         'totalQuestions': totalQuestions,
         'correctAnswers': correctAnswers,
         'passed': passed,
-        // FIX: Corrected method name from toIso861String to toIso8601String
         'completedAt': completedAt.toIso8601String(),
       };
 
@@ -305,3 +304,4 @@ class AptitudeTestResult {
         completedAt: DateTime.parse(json['completedAt']),
       );
 }
+// update in decemember for new job posting through firebase

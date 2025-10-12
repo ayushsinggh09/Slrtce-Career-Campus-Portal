@@ -68,7 +68,6 @@ class AuthProvider with ChangeNotifier {
       );
 
       if (credential.user != null) {
-        // Create document in 'users' collection
         await _firestore.collection('users').doc(credential.user!.uid).set({
           'name': name,
           'email': email,
@@ -76,7 +75,6 @@ class AuthProvider with ChangeNotifier {
           'updatedAt': FieldValue.serverTimestamp(),
         });
 
-        // FIX: Also create the main student document on registration
         await _firestore.collection('students').doc(credential.user!.uid).set({
           'name': name,
           'email': email,
