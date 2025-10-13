@@ -7,9 +7,6 @@ class AlumniModel {
   final String currentCompany;
   final String? profileImagePath;
   final List<String> achievements;
-  final String? linkedInUrl;
-  final String? email;
-  final double? cgpa;
 
   AlumniModel({
     required this.id,
@@ -20,13 +17,9 @@ class AlumniModel {
     required this.currentCompany,
     this.profileImagePath,
     this.achievements = const [],
-    this.linkedInUrl,
-    this.email,
-    this.cgpa,
   });
 
-  // Static method to provide sample alumni data
-  // In a real app, this would come from a database or API
+   // for new alumni updated through Firebase (in december)
   static List<AlumniModel> getSampleAlumni() {
     return [
       AlumniModel(
@@ -37,8 +30,7 @@ class AlumniModel {
         currentPosition: 'Content Creater',
         currentCompany: 'Capgemini',
         profileImagePath: 'assets/images/alumni_1.jpg', 
-        achievements: ['+1M followers on social media', 'Dancer'],
-        cgpa: 7.9,
+        achievements: ['+1M followers on social media'],
       ),
       AlumniModel(
         id: '2',
@@ -48,8 +40,7 @@ class AlumniModel {
         currentPosition: 'Data Scientist',
         currentCompany: 'Dream 11',
         profileImagePath: 'assets/images/alumni_2.jpg',
-        achievements: ['Online Fantasy Winner 5x', 'Carpedium Captian'],
-        cgpa: 7.8,
+        achievements: ['Online Fantasy Winner 5x'],
       ),
       AlumniModel(
         id: '3',
@@ -59,11 +50,7 @@ class AlumniModel {
         currentPosition: 'Assistant Professors',
         currentCompany: 'Physics Wallah',
         profileImagePath: 'assets/images/alumni_3.jpg',
-        achievements: [
-          'Winner of Science Exhibition 2x',
-          'Physics Golden Attempt Clear'
-        ],
-        cgpa: 7.7,
+        achievements: ['Winner of Science Exhibition 2x'],
       ),
       AlumniModel(
         id: '4',
@@ -73,11 +60,7 @@ class AlumniModel {
         currentPosition: 'Fitness consultant',
         currentCompany: 'Nitrro',
         profileImagePath: 'assets/images/alumni_4.jpg',
-        achievements: [
-          'Most push ups in 10 minutes',
-          'Guinness World Records Longest Plank'
-        ],
-        cgpa: 7.6,
+        achievements: ['Most push ups in 10 minutes'],
       ),
       AlumniModel(
         id: '5',
@@ -87,8 +70,7 @@ class AlumniModel {
         currentPosition: 'Software Engineer',
         currentCompany: 'Accenture',
         profileImagePath: 'assets/images/alumni_5.jpg',
-        achievements: ['Leadership Excellence', 'SIH winner 24'],
-        cgpa: 9.4,
+        achievements: ['Leadership Excellence'],
       ),
       AlumniModel(
         id: '6',
@@ -98,8 +80,8 @@ class AlumniModel {
         currentPosition: 'Full Stack Developer',
         currentCompany: 'JIO',
         profileImagePath: 'assets/images/alumni_6.jpg',
-        achievements: ['Hack4bihar winner 4x', 'SIH Winner 24'],
-        cgpa: 7.8,
+        achievements: ['Hack4bihar winner 4x'],
+
       ),
       AlumniModel(
         id: '7',
@@ -109,8 +91,7 @@ class AlumniModel {
         currentPosition: 'Data Analytics',
         currentCompany: 'Stake',
         profileImagePath: 'assets/images/alumni_7.jpg',
-        achievements: ['Stake Brand Ambassador', 'SIH Winner 24'],
-        cgpa: 7.7,
+        achievements: ['Stake Brand Ambassador'],
       ),
       AlumniModel(
         id: '8',
@@ -120,8 +101,7 @@ class AlumniModel {
         currentPosition: 'UI/UX Design',
         currentCompany: 'Deloite',
         profileImagePath: 'assets/images/alumni_8.jpeg',
-        achievements: ['Technical Excellence', 'SIH Winner 24'],
-        cgpa: 8.5,
+        achievements: ['Technical Excellence']
       ),
       AlumniModel(
         id: '9',
@@ -131,13 +111,11 @@ class AlumniModel {
         currentPosition: 'Software Developer',
         currentCompany: 'KPMG',
         profileImagePath: 'assets/images/alumni_9.png',
-        achievements: ['Stock Predication', 'SIH Winner 24'],
-        cgpa: 8.1,
+        achievements: ['Stock Predication']
       ),
     ];
   }
 
- 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -148,13 +126,9 @@ class AlumniModel {
       'currentCompany': currentCompany,
       'profileImagePath': profileImagePath,
       'achievements': achievements,
-      'linkedInUrl': linkedInUrl,
-      'email': email,
-      'cgpa': cgpa,
     };
   }
 
-  // Factory constructor to create from JSON  update upcomming
   factory AlumniModel.fromJson(Map<String, dynamic> json) {
     return AlumniModel(
       id: json['id'],
@@ -165,9 +139,6 @@ class AlumniModel {
       currentCompany: json['currentCompany'],
       profileImagePath: json['profileImagePath'],
       achievements: List<String>.from(json['achievements'] ?? []),
-      linkedInUrl: json['linkedInUrl'],
-      email: json['email'],
-      cgpa: json['cgpa']?.toDouble(),
     );
   }
   int get achievementCount => achievements.length;
@@ -187,4 +158,3 @@ class AlumniModel {
     return (currentYear - graduationYear) <= 2;
   }
 }
-// newly alumni added in dece..... through firebase
