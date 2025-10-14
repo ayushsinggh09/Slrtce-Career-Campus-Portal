@@ -52,7 +52,7 @@ class Validators {
 
   static String? validateOptionalPercentage(String? value) {
     if (value == null || value.isEmpty) {
-      return null; // Optional field
+      return null;
     }
     final percentage = double.tryParse(value);
     if (percentage == null) {
@@ -66,7 +66,7 @@ class Validators {
 
   static String? validateGPA(String? value) {
     if (value == null || value.isEmpty) {
-      return null; // Optional field
+      return null;
     }
     final gpa = double.tryParse(value);
     if (gpa == null) {

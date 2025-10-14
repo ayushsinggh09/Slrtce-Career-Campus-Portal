@@ -1,7 +1,7 @@
 class AppConstants {
   // App Information
   static const String appName = 'Career Campus Portal';
-  static const String appVersion = '1.0.0';
+  static const String appVersion = '1.2.0';
 
   // Branches
   static const List<String> branches = [
@@ -35,14 +35,13 @@ class AppConstants {
   ];
   static const List<String> profilePictureExtensions = ['jpg', 'jpeg', 'png'];
 
-  static const int maxFileSize = 5 * 1024 * 1024; // 5MB
+  static const int maxFileSize = 5 * 1024 * 1024;
 
   // Success Messages
   static const String profileSavedMessage = 'Profile saved successfully!';
   static const String academicDetailsSavedMessage =
       'Academic details saved successfully!';
 
-  // Skill Categories for suggestions
   static const List<String> technicalSkills = [
     'Java',
     'Python',

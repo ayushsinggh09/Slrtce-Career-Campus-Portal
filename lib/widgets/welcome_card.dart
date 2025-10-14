@@ -83,7 +83,7 @@ class WelcomeCard extends StatelessWidget {
       },
     );
   }
-
+  // user  interface duration
   String _getGreeting() {
     final hour = DateTime.now().hour;
     if (hour < 12) return 'Good Morning';

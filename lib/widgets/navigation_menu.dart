@@ -17,10 +17,8 @@ class NavigationMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Index 0 (Dashboard) is handled by the parent screen.
-    // This IndexedStack only manages the content for other tabs.
     final screens = [
-      Container(), // Placeholder for Dashboard
+      Container(), 
       const ProfileScreen(),
       const AcademicScreen(),
       const DocumentsScreen(),
@@ -28,7 +26,7 @@ class NavigationMenu extends StatelessWidget {
       const AlumniScreen(),
     ];
 
-    if (selectedIndex < 0 || selectedIndex >= screens.length) {
+    if (selectedIndex < 0 || selectedIndex >= screens.length) {// for dashboard as it start for index 0
       return Container(); // Fallback for an invalid index
     }
 
