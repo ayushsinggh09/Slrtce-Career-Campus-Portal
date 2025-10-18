@@ -1,5 +1,5 @@
 name: slrtce
-description: A new Flutter project for the student portal with firebase and supabase.   
+description: A new Flutter project for the student portal with firebase and supabase storage.   
 publish_to: 'none'
 version: 1.0.0+1
 

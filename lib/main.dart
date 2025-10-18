@@ -13,7 +13,7 @@ import 'theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase for Auth & Firestore sorry firebase torage plz return my 18 rupees
+  // Initialize Firebase for Auth & Firestore
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // Initialize Supabase for Storage
