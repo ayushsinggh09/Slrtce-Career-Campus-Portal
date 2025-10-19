@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  static const Color primaryColor = Color(0xFF2563EB);
-  static const Color secondaryColor = Color(0xFF7C3AED);
+class AppTheme {      // class to use in across project 
+  static const Color primaryColor = Color(0xFF2563EB);  
+  static const Color secondaryColor = Color(0xFF7C3AED);  
   static const Color successColor = Color(0xFF059669);
   static const Color errorColor = Color(0xFFDC2626);
   static const Color warningColor = Color(0xFFF59E0B);
@@ -11,6 +11,7 @@ class AppTheme {
   static const Color onSurfaceColor = Color(0xFF1E293B);
 
   static const TextTheme simpleTextTheme = TextTheme(
+   // font styles used throughout the applic..,
     displayLarge: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: onSurfaceColor),
     headlineLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: onSurfaceColor),
     titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: onSurfaceColor),
