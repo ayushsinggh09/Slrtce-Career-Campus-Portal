@@ -1,5 +1,5 @@
 name: slrtce
-description: A new Flutter project for the student portal with firebase and supabase storage.   
+description: A new Flutter project for the student Career Campus Portal with hybrid backend firebase and supabase. 
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -15,12 +15,12 @@ dependencies:
   firebase_core: ^2.27.0
   firebase_auth: ^4.17.8
   cloud_firestore: ^4.15.8
-  # google_sign_in: ^6.2.1     # use later google sign up features
+  # google_sign_in: ^6.2.1     # upcomming google sign up features
   
-  # taking supabase dependencies for storage switching to firebasse
+  #supabase dependencies for storage 
   supabase_flutter: ^2.3.4
 
-  # Other dependencies...
+  # Other dependencies
   provider: ^6.1.2
   shared_preferences: ^2.2.2
   file_picker: ^8.0.0
