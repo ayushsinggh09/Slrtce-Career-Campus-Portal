@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 import '../providers/student_provider.dart';
 import '../theme/app_theme.dart';
 
+// class declaration
 class WelcomeCard extends StatelessWidget {
+  // stateless usses here rebuilds only when its parent or dependencies change.
   const WelcomeCard({super.key});
 
   @override
@@ -72,7 +74,7 @@ class WelcomeCard extends StatelessWidget {
                     value: student.profileCompletion / 100,
                     backgroundColor: Colors.white.withOpacity(0.2),
                     valueColor:
-                    const AlwaysStoppedAnimation<Color>(Colors.white),
+                        const AlwaysStoppedAnimation<Color>(Colors.white),
                     minHeight: 6,
                   ),
                 ),
@@ -83,6 +85,7 @@ class WelcomeCard extends StatelessWidget {
       },
     );
   }
+
   // user  interface duration
   String _getGreeting() {
     final hour = DateTime.now().hour;
