@@ -148,7 +148,8 @@ class AuthProvider with ChangeNotifier {
       if (_currentUser != null && !_currentUser!.emailVerified) {
         return AuthResult(
             success: true,
-            message: 'Login successful! Please verify your email.');
+            message:
+                'Login successful! Please verify your email. aslo try to check Spam section in email section!');
       }
       return AuthResult(success: true, message: 'Login successful!');
     } on FirebaseAuthException catch (e) {
@@ -190,10 +191,10 @@ class AuthProvider with ChangeNotifier {
       if (_currentUser == null) {
         return AuthResult(success: false, message: 'No user logged in');
       }
-      // Delete user documents first
+      //step 1 to delete any student Delete user documents first
       await _firestore.collection('users').doc(_currentUser!.uid).delete();
       await _firestore.collection('students').doc(_currentUser!.uid).delete();
-      // Then delete the auth user
+      //step 2 to delete the auth user
       await _currentUser!.delete();
       _currentUser = null;
       _userData = null;
@@ -202,10 +203,10 @@ class AuthProvider with ChangeNotifier {
       return AuthResult(success: true, message: 'Account deleted successfully');
     } on FirebaseAuthException catch (e) {
       return AuthResult(
-          success: false, message: e.message ?? 'Failed to delete account');
+          success: false, message: e.message ?? 'Failed to delete');
     } catch (e) {
       return AuthResult(
-          success: false, message: 'Failed to delete account: ${e.toString()}');
+          success: false, message: 'Failed to delete: ${e.toString()}');
     }
   }
 
